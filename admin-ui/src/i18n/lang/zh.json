@@ -1,0 +1,92 @@
+{
+  "navbar": {
+    "search": {
+      "text": "搜索..."
+    },
+    "dropdown": {
+      "megamenu": {
+        "text": "超级菜单",
+        "group1": {
+          "item1": "管理系统主页",
+          "item2": "网络维护和优化和日程管理"
+        },
+        "group2": {
+          "item1": "网络维护和优化日志管理",
+          "item2": "通讯录管理"
+        },
+        "group3": {
+          "item1": "系统短信管理",
+          "item2": "网络经验管理"
+        },
+        "group4": {
+          "item1": "系统公告管理",
+          "item2": "用户管理"
+        }
+      },
+      "role": {
+        "list": {
+          "item1": "系统管理员",
+          "item2": "网络维护",
+          "item3": "一线人员",
+          "item4": "。。。"
+        }
+      },
+      "notification": {
+        "text": "通知事项",
+        "subtext": "查看全部",
+        "info": {
+          "title": "您收到了一条信息",
+          "content": "网络维护19日的任务请完成",
+          "time": "3分钟前"
+        },
+        "james": {
+          "title": "詹姆斯·勒米尔",
+          "text": "好像是简体英语。",
+          "time": "1小时前"
+        },
+        "button": "装载更多.."
+      },
+      "user": {
+        "username": "吴彦祖",
+        "list": {
+          "info": "我的信息",
+          "logout": "登出"
+        }
+      }
+    }
+  },
+
+  "menuitems": {
+    "menu": {
+      "text": "菜单栏"
+    },
+    "dashboard": {
+      "text": "仪表板",
+      "badge": "3",
+      "role": "ALL"
+    },
+    "network": {
+      "text": "网络维护",
+      "list": {
+        "schedule": "日程管理",
+        "log": "日志管理"
+      }
+    },
+    "contact": {
+      "text": "通讯录管理"
+    },
+    "message": {
+      "text": "系统短信管理"
+    },
+    "experience": {
+      "text": "网络经验"
+    },
+
+    "notice": {
+      "text": "系统公告管理"
+    },
+    "user": {
+      "text": "用户管理"
+    }
+  }
+}

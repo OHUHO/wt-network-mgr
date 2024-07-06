@@ -1,0 +1,126 @@
+server:
+    port: 8417
+spring:
+    application:
+        name: 网络后台管理系统
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        #driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://walker.top:3306/w_admin?useUnicode=true&useSSL=true&characterEncoding=utf8
+        username: root
+        password: 123456
+        druid:
+            initial-size: 1
+            min-idle: 1
+            max-active: 20
+            test-on-borrow: true
+
+            aop-patterns: com.record.*  #监控SpringBean
+            filters: stat,wall     # 底层开启功能，stat（sql监控），wall（防火墙）
+
+            stat-view-servlet: # 配置监控页功能
+                enabled: true
+                login-username: admin
+                login-password: 123456
+                resetEnable: false
+
+            web-stat-filter: # 监控web
+                enabled: true
+                urlPattern: /*
+                exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+
+            filter:
+                stat: # 对上面filters里面的stat的详细配置
+                    slow-sql-millis: 1000
+                    logSlowSql: true
+                    enabled: true
+                wall:
+                    enabled: true
+                    config:
+                        drop-table-allow: false
+    servlet:
+        multipart:
+            max-file-size: 100MB
+            max-request-size: 100MB
+    mvc:
+        path match:
+            matching-strategy: ant_path_matcher
+
+    devtools:
+        livereload:
+            port: 35730
+
+    jackson:
+        time-zone: GMT+8
+
+    main:
+         allow-circular-references: false
+
+
+
+# MyBatis-Plus
+mybatis-plus:
+    configuration:
+        # 配置日志
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    global-config:
+        db-config:
+            # 表默认前缀
+            table-prefix: w_
+            # 统一的主键生成策略
+            id-type: auto
+    # 配置数据返回类型别名
+    type-aliases-package: com.record.entity
+    # 配置映射文件
+    mapper-locations: classpath:mapper/*.xml
+
+# JWT 配置
+#jwt:
+#    # JWT 存储的请求头
+#    tokenHeader: Authorization
+#    # JWT 加密使用的密钥
+#    secret: bbs-secret
+#    # JWT 的超时期限时间（60*60*24）
+#    expiration: 604800
+#    # JWT 负载中拿到开头
+#    tokenHead: Bearer
+application:
+    security:
+        jwt:
+#            secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+            secret-key: VUhJT0pJT0hVWUlHRFVGVFdPSVJISVVHWUZHVkRVR0RISVVIREJZI1VJSEZTVUdZR0ZTVVk=
+            expiration: 86400000 # 一天
+            refresh-token:
+                expiration: 604800000 # 7 天
+
+
+springdoc:
+    swagger-ui:
+        path: /docs.html
+        tags-sorter: alpha
+        operations-sorter: alpha
+    api-docs:
+        path: /v3/api-docs
+#    group-configs:
+#        - group: 'default'
+#          paths-to-match: '/**'
+#          packages-to-scan: com.record
+knife4j:
+    # 开启增强配置
+    enable: true
+    setting:
+        language: zh_cn
+        # swagger-model-name: 实体类列表
+    # 开启Swagger 的Basic认证功能
+    basic:
+        enable: true
+        username: admin
+        password: 1234
+#    documents:
+#        - name: 标题1
+#          locations: classpath:markdown/*
+#          group: default
+#        - name: 标题2
+#          locations: classpath:markdown1/*
+#          group: 用户模块

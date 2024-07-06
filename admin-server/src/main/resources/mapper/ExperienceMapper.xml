@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.record.mapper.ExperienceMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.record.entity.Experience">
+        <id column="id" property="id" />
+        <result column="experience_kind_id" property="experienceKindId" />
+        <result column="device_name" property="deviceName" />
+        <result column="device_area" property="deviceArea" />
+        <result column="test_sign" property="testSign" />
+        <result column="title" property="title" />
+        <result column="content" property="content" />
+        <result column="publish_date" property="publishDate" />
+        <result column="is_delete" property="isDelete" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, experience_kind_id, device_name, device_area, test_sign, title, content, publish_date, is_delete
+    </sql>
+
+</mapper>
